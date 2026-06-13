@@ -1,12 +1,14 @@
 package se.linhhndev.sd;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Random;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class URLInfoService {
@@ -20,7 +22,7 @@ public class URLInfoService {
         urlInfo.setRawLink(shortenRequest.getRawLink());
 
         urlInfoRepository.save(urlInfo);
-
+        log.info("Saved success");
         return shortCode;
     }
 
